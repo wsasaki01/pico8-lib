@@ -15,12 +15,12 @@ function _update()
 	if btnp(5) then
 	shake_strength=1
 	end
-	
-	shake(cam.x, cam.y)
 end
 
 function _draw()
 	cls()
+	
+	shake(cam.x, cam.y)
 	map(0,0)
 end
 __gfx__

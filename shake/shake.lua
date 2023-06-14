@@ -1,17 +1,6 @@
-function shake(cx, cy)
+function shake(cx,cy)
 -- apply screen shake
-    -- screen position
-    local x = cx+20-rnd(40)
-    local y = cy+20-rnd(40)
-
-    -- apply strength
-    x *= shake_strength
-    y *= shake_strength
-
-    -- move the camera
-    camera(x, y)
-
-    -- decay the shake scrength
-    shake_strength *= 0.75
-    if (shake_strength < 0.05) shake_strength = 0
+ camera((cx+20-rnd(40))*sh_str, (cy+20-rnd(40))*sh_str)
+ sh_str *= 0.75
+ if (sh_str < 0.05) sh_str = 0
 end

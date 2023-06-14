@@ -60,8 +60,6 @@ function _draw()
    pset(raycoords[count][1], raycoords[count][2], 7)
   end
  end
-
- print(angle)
 end
 
 function within_bounds(x, y)
