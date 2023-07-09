@@ -15,7 +15,7 @@ end
 
 function _draw()
 	cls()
-	draw_crack(64,64,crack,7)
+	draw_crack(crack,7)
 	print("❎ to gen crack", 50, 120)
 end
 __gfx__

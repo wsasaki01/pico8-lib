@@ -1,5 +1,5 @@
 function gen_crack(cx,cy,strand_cnt,max_seg_length)
-    local out={}
+    local out={{x=cx,y=cy}, {}}
     for i=1,strand_cnt do
         local s={}
         local dir=rnd(1)
@@ -10,14 +10,15 @@ function gen_crack(cx,cy,strand_cnt,max_seg_length)
             y+=sin(dir+rnd(0.25)-0.125)*rnd(max_seg_length)
             add(s,{x, y})
         end
-        add(out,s)
+        add(out[2],s)
     end
     return out
 end
 
-function draw_crack(cx,cy,crack,col)
-    for s in all(crack) do
-        line(cx,cy,cx,cy,col)
+function draw_crack(crack,col)
+    local c=crack[1]
+    for s in all(crack[2]) do
+        line(c.x,c.y,c.x,c.y,col)
         for ep in all(s) do
             line(ep[1],ep[2],col)
         end

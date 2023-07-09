@@ -1,5 +1,5 @@
 function gen_crack(centre_x, centre_y, strand_cnt, max_seg_length)
-    local output={}
+    local output={{x=centre_x, y=centre_y}, {}}
     for i=1, strand_cnt do
         local strand={}
 
@@ -21,16 +21,19 @@ function gen_crack(centre_x, centre_y, strand_cnt, max_seg_length)
         end
 
         -- once strand is generated, add it to output
-        add(output, strand)
+        add(output[2], strand)
     end
     return output
 end
 
 function draw_crack(crack, col)
+    -- store the centre coords from the crack table
+    local centre=crack[1]
+
     -- loop through each strand of the crack
-    for strand in all(crack) do
+    for strand in all(crack[2]) do
         -- set the centre point
-        line(50, 50, 50, 50, col)
+        line(centre.x, centre.y, centre.x, centre.y, col)
 
         -- for each endpoint, draw a line from the previous endpoint
         for endpoint in all(strand) do
