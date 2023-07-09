@@ -83,3 +83,7 @@ function raycast(x0, y0, x1, y1, cx, cy)
 
     return raycoords
 end
+
+function tan(angle)
+    return sin(angle)/cos(angle)
+end
